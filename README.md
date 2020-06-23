@@ -19,3 +19,4 @@ deno run welcome.js
 ## References
 
 - [Deno Official Page](https://deno.land/)
+- [Simple REST API with Deno](https://dev.to/am77/deno-v1-0-303j)
