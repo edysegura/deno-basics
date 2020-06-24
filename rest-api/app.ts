@@ -7,8 +7,7 @@ router
     response.body = 'Server is up and running!';
   })
   .get('/hello/:name', ({ params, response }) => {
-    const name = params.name || 'No name';
-    response.body = `Hello ${name}!`
+    response.body = `Hello ${params.name}!`
   });
 
 const app = new Application();
@@ -16,7 +15,7 @@ app.use(router.routes());
 app.use(router.allowedMethods());
 
 const HOST = Deno.env.get('HOST') || 'localhost';
-const PORT = Deno.env.get('PORT') || 3000;
+const PORT = Deno.env.get('PORT') || 9000;
 
-await app.listen(`${HOST}:${PORT}`);
 console.log(`Server is up and running on ${HOST}:${PORT}`);
+await app.listen(`${HOST}:${PORT}`);
