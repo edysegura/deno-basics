@@ -22,8 +22,9 @@ const headersValues = {
   const { response } = await soapRequest({
     url: wsdlLocation,
     headers: headersValues,
-    xml: xmlEnvelop
-  });
+    xml: xmlEnvelop,
+    extraOpts: {}
+  }) as any;
 
   const { body } = response;
   console.log(body);
