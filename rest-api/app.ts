@@ -17,5 +17,5 @@ app.use(router.allowedMethods());
 const HOST = Deno.env.get('HOST') || 'localhost';
 const PORT = Deno.env.get('PORT') || 9000;
 
-console.log(`Server is up and running on ${HOST}:${PORT}`);
+console.log(`Server is up and running on http://${HOST}:${PORT}`);
 await app.listen(`${HOST}:${PORT}`);
