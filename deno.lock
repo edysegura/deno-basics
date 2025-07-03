@@ -1,0 +1,6 @@
+{
+  "version": "5",
+  "remote": {
+    "https://deno.land/x/easy_soap_request@v5.6.1/index.d.js": "e53c9020ee3e4be17d8a368ea80df11fb1a3dbc72653483966c9a8c9b8f6c68c"
+  }
+}
