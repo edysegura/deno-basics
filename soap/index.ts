@@ -1,6 +1,7 @@
 import soapRequest from 'https://deno.land/x/easy_soap_request/index.d.js';
 
-const wsdlLocation = 'https://apphom.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl';
+const wsdlLocation =
+  'https://apphom.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl';
 
 const xmlEnvelop = `
   <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
@@ -14,17 +15,27 @@ const xmlEnvelop = `
 
 const headersValues = {
   'Content-Type': 'text/xml;charset=UTF-8',
-  'SOAPAction': '',
-  'Content-Length': xmlEnvelop.length
+  SOAPAction: '',
+  'Content-Length': xmlEnvelop.length,
+};
+
+type SoapRequestResponse = {
+  response: {
+    status: number;
+    statusText: string;
+    headers: Record<string, string>;
+    body: string;
+  };
 };
 
 (async () => {
-  const { response } = await soapRequest({
+  const { response }: SoapRequestResponse = await soapRequest({
+    method: 'POST',
     url: wsdlLocation,
     headers: headersValues,
     xml: xmlEnvelop,
-    extraOpts: {}
-  }) as any;
+    extraOpts: {},
+  });
 
   const { body } = response;
   console.log(body);
