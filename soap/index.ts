@@ -1,7 +1,7 @@
-import soapRequest from 'https://deno.land/x/easy_soap_request/index.d.js';
+import soapRequest from 'https://deno.land/x/easy_soap_request@v5.6.1/index.d.js'
 
 const wsdlLocation =
-  'https://apphom.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl';
+  'https://apphom.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl'
 
 const xmlEnvelop = `
   <Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
@@ -11,32 +11,30 @@ const xmlEnvelop = `
       </consultaCEP>
     </Body>
   </Envelope>
-`;
+`
 
 const headersValues = {
   'Content-Type': 'text/xml;charset=UTF-8',
   SOAPAction: '',
   'Content-Length': xmlEnvelop.length,
-};
+}
 
 type SoapRequestResponse = {
   response: {
-    status: number;
-    statusText: string;
-    headers: Record<string, string>;
-    body: string;
-  };
-};
+    status: number
+    statusText: string
+    headers: Record<string, string>
+    body: string
+  }
+}
 
-(async () => {
-  const { response }: SoapRequestResponse = await soapRequest({
-    method: 'POST',
-    url: wsdlLocation,
-    headers: headersValues,
-    xml: xmlEnvelop,
-    extraOpts: {},
-  });
+const { response }: SoapRequestResponse = await soapRequest({
+  method: 'POST',
+  url: wsdlLocation,
+  headers: headersValues,
+  xml: xmlEnvelop,
+  extraOpts: {},
+})
 
-  const { body } = response;
-  console.log(body);
-})();
+const { body } = response
+console.log(body)
