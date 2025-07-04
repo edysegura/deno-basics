@@ -1,7 +1,5 @@
-import BMIService from './bmi.service.ts'
+import BMI from './bmi.service.ts'
 
-const bodyMassIndex = BMIService
-  .getIndex(76, 1.71)
-  .toFixed(2)
-
-console.log(`BMI: ${ bodyMassIndex }`)
+const bmi = new BMI(76, 1.71)
+console.log(`BMI (raw value): ${bmi.value}`)
+console.log(`BMI: ${bmi.formattedValue}`)

@@ -1,8 +1,20 @@
-export default class BMIService {
-  static getIndex(weight: number, height: number): number {
-    if (weight && height) {
-      return weight / (height * height);
+export default class BMI {
+  private readonly weight: number
+  private readonly height: number
+
+  constructor(weight: number, height: number) {
+    if (weight <= 0 || height <= 0) {
+      throw new Error('Weight and height must be positive numbers')
     }
-    return 0;
+    this.weight = weight
+    this.height = height
+  }
+
+  get value(): number {
+    return this.weight / (this.height * this.height)
+  }
+
+  get formattedValue(): string {
+    return this.value.toFixed(2)
   }
 }
