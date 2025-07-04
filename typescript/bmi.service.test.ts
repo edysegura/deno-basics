@@ -8,8 +8,10 @@ Deno.test('BMI.value returns correct BMI for valid weight and height', () => {
   const weight = 76 // kg
   const height = 1.71 // meters
   const expectedBMI = 25.990903183885642
+  const expectedBMIRounded = '25.99'
   const bmi = new BMI(weight, height)
   assertEquals(bmi.value, expectedBMI)
+  assertEquals(bmi.formattedValue, expectedBMIRounded)
 })
 
 Deno.test(
