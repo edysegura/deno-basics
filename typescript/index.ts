@@ -1,4 +1,4 @@
-import BMI from './bmi.service.ts'
+import BMI from './bmi.ts'
 
 const bmi = new BMI(76, 1.71)
 console.log(`BMI (raw value): ${bmi.value}`)

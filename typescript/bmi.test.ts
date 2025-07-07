@@ -2,7 +2,7 @@ import {
   assertEquals,
   assertThrows,
 } from 'https://deno.land/std@0.203.0/assert/mod.ts'
-import BMI from './bmi.service.ts'
+import BMI from './bmi.ts'
 
 Deno.test('BMI.value returns correct BMI for valid weight and height', () => {
   const weight = 76 // kg
